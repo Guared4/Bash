@@ -1,5 +1,5 @@
 From: Nginx Report <nginx@mail.com>
-To: RECIPIENT <recipient@example.com> 
+To: RECIPIENT <mail@mail.com> 
 Subject: Nginx Report
 Обрабатываемый период:
 От 14 August 2019 04:12 до 26 December 2024 13:53
