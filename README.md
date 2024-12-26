@@ -1,6 +1,6 @@
-# Цель домашнего задания
+# Otus Homework 10. Bash
+### Цель домашнего задания
 Написать скрипт на языке Bash
-
 ### Описание домашнего задания
 Написать скрипт для CRON, который раз в час будет формировать письмо и отправлять на заданную почту.  
   
@@ -24,20 +24,23 @@
 
 Добавление в CRON осуществляется с помощью *shell* скрипта в *Vagrantfile*. Скрипт размещается в каталоге */opt/*
 
-Шаг 1: Установка необходимой утилиты
+Шаг 1: Установка необходимых утилит
 
 sudo apt-get update
-sudo apt-get sendmail
+sudo apt-get install mailutils
 
 Шаг 2: Создание скрипта
-Создаю bash скрипт, который будет выполнять все необходимые действия: nginx_log_report.sh.
+Создаю bash скрипт, который будет выполнять все необходимые действия. Назовем его nginx_log_report.sh.
 
-Скрипт nginx_log_report.sh
+Скрипт nginx_log_report.sh:
 
-# !/bin/bash
+```bash
+# !/bin/bash  
 
-# Email адрес получателя
-mailbox="mail@mail.com"
+# Email адрес получателя  
+
+mailbox="mail@mail.com"  
+
 user=$(echo $mailbox | cut -d @ -f 1 | tr '[:lower:]' '[:upper:]')
 log_path="/var/log/nginx/access.log"
 current_date="$(date +"%d %B %Y %H:%M")"
@@ -90,7 +93,7 @@ if [ ! -f is_script_running ]
     else
         echo "Script is running. Try again later.."
 fi  
-
+```
 
 3. Формируется образец письма для отправки по почте.
 
